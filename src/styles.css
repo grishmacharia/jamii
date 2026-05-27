@@ -116,11 +116,10 @@ body {
   cursor: pointer;
 }
 
-.placeholder-screen {
-  text-align: center;
-  padding-top: 120px;
-}
-
-.placeholder-screen h2 {
-  font-size: 32px;
+textarea {
+  width: 100%;
+  height: 140px;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  padding: 14px;
 }
