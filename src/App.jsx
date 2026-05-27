@@ -20,61 +20,64 @@ function Splash({ onEnter }) {
   );
 }
 
-function AppShell({ activeTab, setActiveTab, children, onReport }) {
+function HomeScreen() {
   return (
-    <div className="page">
-      <div className="phone-shell">
-        <div className="screen-content">{children}</div>
-
-        <button className="fab" onClick={onReport}>
-          <Plus size={26} />
-        </button>
-
-        <nav className="bottom-nav">
-          <Home
-            size={22}
-            className={activeTab === "home" ? "active" : ""}
-            onClick={() => setActiveTab("home")}
-          />
-          <Map
-            size={22}
-            className={activeTab === "map" ? "active" : ""}
-            onClick={() => setActiveTab("map")}
-          />
-          <BarChart3
-            size={22}
-            className={activeTab === "pulse" ? "active" : ""}
-            onClick={() => setActiveTab("pulse")}
-          />
-          <Radio
-            size={22}
-            className={activeTab === "live" ? "active" : ""}
-            onClick={() => setActiveTab("live")}
-          />
-          <User
-            size={22}
-            className={activeTab === "profile" ? "active" : ""}
-            onClick={() => setActiveTab("profile")}
-          />
-        </nav>
-      </div>
-    </div>
+    <>
+      <h2>JAMII HOME</h2>
+      <p>Community intelligence dashboard</p>
+    </>
   );
 }
 
-function Placeholder({ title }) {
+function MapScreen() {
   return (
-    <div className="placeholder-screen">
-      <h2>{title}</h2>
-      <p>Module loading...</p>
-    </div>
+    <>
+      <h2>JAMII MAP</h2>
+      <p>Development map loading...</p>
+    </>
+  );
+}
+
+function PulseScreen() {
+  return (
+    <>
+      <h2>JAMII PULSE</h2>
+      <p>Citizen analytics loading...</p>
+    </>
+  );
+}
+
+function LiveScreen() {
+  return (
+    <>
+      <h2>JAMII LIVE</h2>
+      <p>Live civic media loading...</p>
+    </>
+  );
+}
+
+function ProfileScreen() {
+  return (
+    <>
+      <h2>PROFILE</h2>
+      <p>Your citizen dashboard</p>
+    </>
+  );
+}
+
+function ReportScreen() {
+  return (
+    <>
+      <h2>REPORT ISSUE</h2>
+      <textarea placeholder="Describe issue..." />
+    </>
   );
 }
 
 export default function App() {
   const [entered, setEntered] = useState(false);
-  const [activeTab, setActiveTab] = useState("home");
-  const [reportMode, setReportMode] = useState(false);
+  const [tab, setTab] = useState("home");
+  const [report, setReport] = useState(false);
 
   if (!entered) {
     return <Splash onEnter={() => setEntered(true)} />;
@@ -82,34 +85,81 @@ export default function App() {
 
   let content;
 
-  if (reportMode) {
-    content = <Placeholder title="REPORT ISSUE" />;
+  if (report) {
+    content = <ReportScreen />;
   } else {
-    switch (activeTab) {
+    switch (tab) {
       case "map":
-        content = <Placeholder title="JAMII MAP" />;
+        content = <MapScreen />;
         break;
       case "pulse":
-        content = <Placeholder title="JAMII PULSE" />;
+        content = <PulseScreen />;
         break;
       case "live":
-        content = <Placeholder title="JAMII LIVE" />;
+        content = <LiveScreen />;
         break;
       case "profile":
-        content = <Placeholder title="PROFILE" />;
+        content = <ProfileScreen />;
         break;
       default:
-        content = <Placeholder title="HOME" />;
+        content = <HomeScreen />;
     }
   }
 
   return (
-    <AppShell
-      activeTab={activeTab}
-      setActiveTab={setActiveTab}
-      onReport={() => setReportMode(true)}
-    >
-      {content}
-    </AppShell>
+    <div className="page">
+      <div className="phone-shell">
+        <div className="screen-content">
+          {content}
+        </div>
+
+        <button className="fab" onClick={() => setReport(true)}>
+          <Plus size={24} />
+        </button>
+
+        <nav className="bottom-nav">
+          <Home
+            size={22}
+            className={tab === "home" ? "active" : ""}
+            onClick={() => {
+              setReport(false);
+              setTab("home");
+            }}
+          />
+          <Map
+            size={22}
+            className={tab === "map" ? "active" : ""}
+            onClick={() => {
+              setReport(false);
+              setTab("map");
+            }}
+          />
+          <BarChart3
+            size={22}
+            className={tab === "pulse" ? "active" : ""}
+            onClick={() => {
+              setReport(false);
+              setTab("pulse");
+            }}
+          />
+          <Radio
+            size={22}
+            className={tab === "live" ? "active" : ""}
+            onClick={() => {
+              setReport(false);
+              setTab("live");
+            }}
+          />
+          <User
+            size={22}
+            className={tab === "profile" ? "active" : ""}
+            onClick={() => {
+              setReport(false);
+              setTab("profile");
+            }}
+          />
+        </nav>
+      </div>
+    </div>
   );
 }
