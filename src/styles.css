@@ -1,0 +1,126 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4efe7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.phone-shell {
+  width: 390px;
+  height: 844px;
+  background: white;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.screen-content {
+  padding: 24px;
+  height: calc(100% - 80px);
+  overflow-y: auto;
+}
+
+.splash {
+  min-height: 100vh;
+  background: #f05a28;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-box {
+  width: 100px;
+  height: 100px;
+  background: white;
+  color: #f05a28;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 54px;
+  font-weight: bold;
+}
+
+.splash h1 {
+  margin: 24px 0 10px;
+  font-size: 56px;
+}
+
+.subtitle {
+  letter-spacing: 4px;
+  font-size: 12px;
+}
+
+.powered {
+  opacity: 0.85;
+  margin-top: 8px;
+}
+
+.splash button {
+  margin-top: 32px;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 16px;
+  background: white;
+  color: #f05a28;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  border-top: 1px solid #eee;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.bottom-nav svg {
+  color: #999;
+  cursor: pointer;
+}
+
+.bottom-nav svg.active {
+  color: #f05a28;
+}
+
+.fab {
+  position: absolute;
+  right: 20px;
+  bottom: 95px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: #f05a28;
+  color: white;
+  cursor: pointer;
+}
+
+.placeholder-screen {
+  text-align: center;
+  padding-top: 120px;
+}
+
+.placeholder-screen h2 {
+  font-size: 32px;
+}
