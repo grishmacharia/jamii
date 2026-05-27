@@ -30,6 +30,8 @@ body {
   padding: 24px;
   height: calc(100% - 80px);
   overflow-y: auto;
+  background: white;
+  color: #222;
 }
 
 .splash {
@@ -114,6 +116,93 @@ body {
   background: #f05a28;
   color: white;
   cursor: pointer;
+}
+
+.hero {
+  height: 220px;
+  border-radius: 24px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.quick-actions div {
+  background: #f8f3ea;
+  border-radius: 18px;
+  padding: 16px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.feed-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+}
+
+.feed-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.feed-body {
+  padding: 16px;
+}
+
+.feed-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.feed-actions div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.feature-card {
+  background: #f8f3ea;
+  padding: 20px;
+  border-radius: 20px;
+  min-height: 180px;
+}
+
+.stats-row {
+  display: flex;
+  gap: 10px;
+}
+
+.stat-card {
+  flex: 1;
+  background: #f8f3ea;
+  padding: 20px;
+  border-radius: 18px;
+  text-align: center;
+  font-weight: bold;
 }
 
 textarea {
